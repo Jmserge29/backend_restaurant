@@ -1,0 +1,37 @@
+{
+  "OrdenId": "jhjhadkhkhsdj",
+  "Customers": [
+    {
+      "customerId": 1111,
+      "order": [
+        {
+          "saucer": "Mojarra Frita",
+          "price": 12000
+        },
+        {
+          "saucer": "Jugo de Naranja",
+          "price": 4000
+        }
+      ]
+    },
+    {
+      "customerId": 2222,
+      "order": [
+        {
+          "saucer": "Mojarra Frita",
+          "price": 12000
+        },
+        {
+          "saucer": " Ejecutivo",
+          "price": 12000
+        },
+        {
+          "saucer": "Jugo de Naranja",
+          "price": 4000
+        }
+      ]
+    }
+  ],
+  "status": "Pending",
+  "final_value": "$120.0000"
+}
