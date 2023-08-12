@@ -25,14 +25,14 @@ const schemaOrder = new Schema([
                             type: Schema.Types.String,
                         },
                         price: {
-                            type: Schema.Types.Decimal128
+                            type: Number
                         }
                     }    
                 ]
             }
         ],
         final_value: {
-            types: Schema.Types.Decimal128
+            types: Number
         }
     },
 ])

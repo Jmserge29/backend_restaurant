@@ -6,12 +6,19 @@ const schemaSaucer = new Schema(
             type: Schema.Types.String,
             require: true
         }, 
+        picture: {
+            type: String
+        },
         price: {
-            type: Schema.Types.Decimal128,
+            type: Number,
             require: true
         },
         duration_cooking: {
-            type: Schema.Types.Decimal128,
+            type: Number,
+            require: true
+        },
+        quantity_ordered: {
+            type: Number,
             require: true
         }
     }

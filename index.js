@@ -17,6 +17,7 @@ app.listen(process.env.PORT || 8089, async()=> {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors({ origin: "*", credentials: true}))
 app.use(morgan('dev'));
 createSaucers()
 app.use("/Saucer", SaucerRoute)
