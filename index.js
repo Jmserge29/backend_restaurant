@@ -1,6 +1,7 @@
 import express from 'express'
 import moment from "moment";
 import dotenv from 'dotenv'
+import cors from "cors"
 import './Database.js'
 import morgan from 'morgan';
 import { createSaucers } from './Libs/InitialSetupRestaurant.js';
