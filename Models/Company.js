@@ -18,10 +18,10 @@ const schemaCompany = new Schema([
             type: Number,
             require: true
         },
-        // lastOrder: {
-        //     type: Schema.Types.ObjectId,
-        //     require: true
-        // },
+        lastOrder: {
+            type: Schema.Types.ObjectId,
+            require: true
+        },
         saucer_most_selling: {
             type: Schema.Types.ObjectId,
             ref: 'Saucer',

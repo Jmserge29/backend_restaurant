@@ -1,4 +1,4 @@
-// import Company from "../Models/Company.js"
+import Company from "../Models/Company.js"
 import Saucer from "../Models/Saucer.js"
 
 export const createSaucers = async(req, res) => {
@@ -49,7 +49,7 @@ export const initialCompany = async(req, res) => {
                 cant_customers: 0,
                 saucer_most_selling: null,
                 cant_orders: 0,
-                // lastOrder: null
+                lastOrder: null
             }
         ).save()
 
