@@ -23,8 +23,7 @@ const schemaCompany = new Schema([
             require: true
         },
         saucer_most_selling: {
-            type: Schema.Types.ObjectId,
-            ref: 'Saucer',
+            type: Schema.Types.String,
             require: true
         }
     }

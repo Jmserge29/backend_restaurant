@@ -57,7 +57,7 @@ const createOrder = async(req, res) => {
         const mostSoldSaucer = await SaucersCtrl.findBestSellingSaucer()
         console.log(mostSoldSaucer)
 
-        await Company.updateOne({_id: rest._id}, { cant_customers: cantidad_clientes, profit: profitAcum, cant_orders: cantOrdersDB, saucer_most_selling: mostSoldSaucer, lastOrder: newOrder}).then(() => {
+        await Company.updateOne({_id: rest._id}, { cant_customers: cantidad_clientes, profit: profitAcum, cant_orders: cantOrdersDB, saucer_most_selling: mostSoldSaucer.name, lastOrder: newOrder}).then(() => {
             console.log('The length customers has been updated in the database: ', cantidad_clientes);
         });
 

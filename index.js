@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import cors from "cors"
 import './Database.js'
 import morgan from 'morgan';
-import { createSaucers } from './Libs/InitialSetup.js';
+import { createSaucers, initialCompany } from './Libs/InitialSetup.js';
 import SaucerRoute from './Routes/saucers.routes.js'
 import OrderRoute from './Routes/order.routes.js'
 dotenv.config()
@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*", credentials: true}))
 app.use(morgan('dev'));
 createSaucers()
+initialCompany()
 app.use("/Saucer", SaucerRoute)
 app.use("/Order", OrderRoute)
 
