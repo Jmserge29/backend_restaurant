@@ -1,12 +1,12 @@
-// import OrderCtrl from "../Controllers/OrdersController.js";
-// import { Router } from "express";
+import OrderCtrl from "../Controllers/OrdersController.js";
+import { Router } from "express";
 
-// const router = Router()
+const router = Router()
 
-// // Rutes by the API
-// router.get("/getOrders", OrderCtrl.getsOrders)
-// // router.get("/getsOrdersPending", OrderCtrl.getsOrdersPending)
-// // router.post("/createOrder", OrderCtrl.createOrder)
+// Rutes by the API
+router.get("/getOrders", OrderCtrl.getsOrders)
+// router.get("/getsOrdersPending", OrderCtrl.getsOrdersPending)
+router.post("/createOrder", OrderCtrl.createOrder)
 
 
-// export default router;
+export default router;

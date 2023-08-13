@@ -4,9 +4,9 @@ import dotenv from 'dotenv'
 import cors from "cors"
 import './Database.js'
 import morgan from 'morgan';
-import { createSaucers } from './Libs/InitialSetupRestaurant.js';
+import { createSaucers, initialRestaurant } from './Libs/InitialSetupRestaurant.js';
 import SaucerRoute from './Routes/saucers.routes.js'
-// import OrderRoute from './Routes/order.routes.js'
+import OrderRoute from './Routes/order.routes.js'
 dotenv.config()
 var time = moment().format('MMMM Do YYYY, h:mm:ss a');
 
@@ -21,9 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*", credentials: true}))
 app.use(morgan('dev'));
 createSaucers()
-// initialRestaurant()
+initialRestaurant()
 app.use("/Saucer", SaucerRoute)
-// app.use("/Order", OrderRoute)
+app.use("/Order", OrderRoute)
 
 
 app.use("/", (req, res)=>{

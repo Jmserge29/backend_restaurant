@@ -1,5 +1,5 @@
 import Saucer from "../Models/Saucer.js"
-// import Restaurant from '../Models/Restaurant.js'
+import Restaurant from '../Models/Restaurant.js'
 
 export const createSaucers = async(req, res) => {
     try {
@@ -37,26 +37,26 @@ export const createSaucers = async(req, res) => {
     }
 }
 
-// export const initialRestaurant = async(req, res) => {
-//     try {
-//         const count = await Restaurant.estimatedDocumentCount();
-//         if(count>0) return
+export const initialRestaurant = async(req, res) => {
+    try {
+        const count = await Restaurant.estimatedDocumentCount();
+        if(count>0) return
 
-//         const restaurantCreate = await new Restaurant(
-//             {
-//                 name: "Restaurante Sasón Barranquillero",
-//                 profit: 0,
-//                 cant_customers: 0,
-//                 saucer_most_selling: null,
-//                 cant_orders: 0,
-//                 lastOrder: null
-//             }
-//         ).save()
+        const restaurantCreate = await new Restaurant(
+            {
+                name: "Restaurante Sasón Barranquillero",
+                profit: 0,
+                cant_customers: 0,
+                saucer_most_selling: null,
+                cant_orders: 0,
+                // lastOrder: null
+            }
+        ).save()
 
-//         console.log("The Initial Restaurant has been created success!")
-//         console.log(restaurantCreate)
+        console.log("The Initial Restaurant has been created success!")
+        console.log(restaurantCreate)
 
-//     } catch (error) {
-//         console.log("An error has ocurred in the server:(", error)
-//     }
-// }
+    } catch (error) {
+        console.log("An error has ocurred in the server:(", error)
+    }
+}
