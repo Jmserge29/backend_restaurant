@@ -16,11 +16,9 @@ const createOrder = async(req, res) => {
             })
         })
 
-
-
         const newOrder = new Order(
             {
-
+                customers: customers,
                 status: "Pending",
                 valueFinal
             }
