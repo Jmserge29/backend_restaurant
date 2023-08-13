@@ -1,5 +1,5 @@
+import Restaurant from "../Models/Restaurant.js"
 import Saucer from "../Models/Saucer.js"
-import Restaurant from '../Models/Restaurant.js'
 
 export const createSaucers = async(req, res) => {
     try {
