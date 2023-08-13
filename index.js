@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import cors from "cors"
 import './Database.js'
 import morgan from 'morgan';
-import { createSaucers } from './Libs/InitialSetupRestaurant.js';
+import { createSaucers } from './Libs/InitialSetup.js';
 import SaucerRoute from './Routes/saucers.routes.js'
 import OrderRoute from './Routes/order.routes.js'
 dotenv.config()
