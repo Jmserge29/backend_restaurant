@@ -12,7 +12,17 @@ const getsSaucers = async(req, res) => {
     }
 }
 
+const findBestSellingSaucer = async () => {
+    try {
+      const bestSaucer = await Saucer.findOne().sort({ quantity_ordered: -1 });
+      return bestSaucer;
+    } catch (error) {
+      console.error('Error al buscar el platillo más vendido:', error);
+      throw error;
+    }
+  };
 
 export default {
-    getsSaucers
+    getsSaucers,
+    findBestSellingSaucer
 }

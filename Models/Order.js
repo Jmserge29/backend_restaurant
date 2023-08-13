@@ -2,8 +2,8 @@ import { Schema, model } from "mongoose";
 
 const schemaOrder = new Schema([
     {
-        orderId: {
-            type: Schema.Types.ObjectId,
+        final_value: {
+            type: Schema.Types.Number,
             require: true
         },
         timestamp: {
@@ -14,26 +14,19 @@ const schemaOrder = new Schema([
             type: Schema.Types.String,
             require: true
         },
-        customers: [
+        order: [
             {
-                customerId: {
-                    type: Schema.Types.ObjectId
+                saucer: {
+                    type: Schema.Types.String,
                 },
-                orders: [
-                    {
-                        saucer: {
-                            type: Schema.Types.String,
-                        },
-                        price: {
-                            type: Number
-                        }
-                    }    
-                ]
+                price: {
+                    type: Schema.Types.Number
+                },
+                customer: {
+                    type: Schema.Types.String,
+                },
             }
         ],
-        final_value: {
-            types: Number
-        }
     },
 ])
 

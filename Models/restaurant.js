@@ -14,8 +14,18 @@ const restaurantSchema = new Schema(
             type: Number,
             require: true
         },
+        cant_orders: {
+            type: Number,
+            require: true
+        },
+        lastOrder: {
+            type: Schema.Types.ObjectId,
+            ref: 'Saucer',
+            require: true
+        },
         saucer_most_selling: {
-            type: Schema.Types.String,
+            type: Schema.Types.ObjectId,
+            ref: 'Saucer',
             require: true
         }
     }
