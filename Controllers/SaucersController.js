@@ -18,7 +18,6 @@ const findBestSellingSaucer = async () => {
       return bestSaucer;
     } catch (error) {
       console.error('Error al buscar el platillo más vendido:', error);
-      throw error;
     }
   };
 
