@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*", credentials: true}))
 app.use(morgan('dev'));
 createSaucers()
-// initialRestaurant()
 app.use("/Saucer", SaucerRoute)
 app.use("/Order", OrderRoute)
 

@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const schemaRestaurant = new Schema([
+const schemaCompany = new Schema([
     {
         name: {
             type: Schema.Types.String,
@@ -30,4 +30,4 @@ const schemaRestaurant = new Schema([
     }
 ])
 
-export default model("Restaurant", schemaRestaurant)
+export default model("Company", schemaCompany)
