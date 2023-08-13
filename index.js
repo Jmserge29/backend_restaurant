@@ -6,7 +6,7 @@ import './Database.js'
 import morgan from 'morgan';
 import { createSaucers } from './Libs/InitialSetupRestaurant.js';
 import SaucerRoute from './Routes/saucers.routes.js'
-import OrderRoute from './Routes/order.routes.js'
+// import OrderRoute from './Routes/order.routes.js'
 dotenv.config()
 var time = moment().format('MMMM Do YYYY, h:mm:ss a');
 
@@ -23,7 +23,7 @@ app.use(morgan('dev'));
 createSaucers()
 // initialRestaurant()
 app.use("/Saucer", SaucerRoute)
-app.use("/Order", OrderRoute)
+// app.use("/Order", OrderRoute)
 
 
 app.use("/", (req, res)=>{
