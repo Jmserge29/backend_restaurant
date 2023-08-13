@@ -14,12 +14,12 @@ const createOrder = async(req, res) => {
         if(!customers) return res.status(400).json({success: false, message: "The customers is required"})
         
         // Buscamos en la base de datos la informacion del Restaurant y validamos
-        const Restaurant = await Restaurant.findOne({name: "Restaurante Sasón Barranquillero"}).catch((err) => {
+        const restaurantFind = await Restaurant.findOne({name: "Restaurante Sasón Barranquillero"}).catch((err) => {
             console.log(err)
             return res.status(400).json({success: false, message: "An error has been in the process :("})
         })
 
-        if(!Restaurant ) return res.status(400).json({success: false, message: "The Restaurant hasn't been created :("})
+        if(!restaurantFind ) return res.status(400).json({success: false, message: "The Restaurant hasn't been created :("})
 
         var valueFinal = 0
         var arrayCustomers = []
@@ -51,13 +51,13 @@ const createOrder = async(req, res) => {
 
         console.log("Order created successly!")
 
-        const cantidad_clientes = Restaurant.cant_customers + customers.length;
-        var profitAcum = Restaurant.profit + valueFinal;
+        const cantidad_clientes = restaurantFind.cant_customers + customers.length;
+        var profitAcum = restaurantFind.profit + valueFinal;
         const cantOrdersDB = await Order.estimatedDocumentCount()
         const mostSoldSaucer = await SaucersCtrl.findBestSellingSaucer()
         console.log(mostSoldSaucer)
 
-        Restaurant.updateOne({_id: Restaurant._id}, { cant_customers: cantidad_clientes, profit: profitAcum, cant_orders: cantOrdersDB, saucer_most_selling: mostSoldSaucer}).then(() => {
+        await Restaurant.updateOne({_id: restaurantFind._id}, { cant_customers: cantidad_clientes, profit: profitAcum, cant_orders: cantOrdersDB, saucer_most_selling: mostSoldSaucer}).then(() => {
             console.log('The length customers has been updated in the database: ', cantidad_clientes);
         });
 
