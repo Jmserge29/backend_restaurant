@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import { createSaucers, initialCompany } from './Libs/InitialSetup.js';
 import SaucerRoute from './Routes/saucers.routes.js'
 import OrderRoute from './Routes/order.routes.js'
+import CompanyRoute from './Routes/company.routes.js'
 dotenv.config()
 var time = moment().format('MMMM Do YYYY, h:mm:ss a');
 
@@ -24,7 +25,7 @@ createSaucers()
 initialCompany()
 app.use("/Saucer", SaucerRoute)
 app.use("/Order", OrderRoute)
-
+app.use("/Company", CompanyRoute)
 
 app.use("/", (req, res)=>{
     res.send(`Hey Dev!, the server is running ${time}`)
