@@ -13,13 +13,13 @@ const createOrder = async(req, res) => {
         // Realizamos validaciones pertinentes
         if(!customers) return res.status(400).json({success: false, message: "The customers is required"})
         
-        // Buscamos en la base de datos la informacion del restaurant y validamos
-        const restaurant = await Restaurant.findOne({name: "Restaurante Sasón Barranquillero"}).catch((err) => {
+        // Buscamos en la base de datos la informacion del Restaurant y validamos
+        const Restaurant = await Restaurant.findOne({name: "Restaurante Sasón Barranquillero"}).catch((err) => {
             console.log(err)
             return res.status(400).json({success: false, message: "An error has been in the process :("})
         })
 
-        if(!restaurant ) return res.status(400).json({success: false, message: "The Restaurant hasn't been created :("})
+        if(!Restaurant ) return res.status(400).json({success: false, message: "The Restaurant hasn't been created :("})
 
         var valueFinal = 0
         var arrayCustomers = []
@@ -51,13 +51,13 @@ const createOrder = async(req, res) => {
 
         console.log("Order created successly!")
 
-        const cantidad_clientes = restaurant.cant_customers + customers.length;
-        var profitAcum = restaurant.profit + valueFinal;
+        const cantidad_clientes = Restaurant.cant_customers + customers.length;
+        var profitAcum = Restaurant.profit + valueFinal;
         const cantOrdersDB = await Order.estimatedDocumentCount()
         const mostSoldSaucer = await SaucersCtrl.findBestSellingSaucer()
         console.log(mostSoldSaucer)
 
-        Restaurant.updateOne({_id: restaurant._id}, { cant_customers: cantidad_clientes, profit: profitAcum, cant_orders: cantOrdersDB, saucer_most_selling: mostSoldSaucer, lastOrder: newOrder}).then(() => {
+        Restaurant.updateOne({_id: Restaurant._id}, { cant_customers: cantidad_clientes, profit: profitAcum, cant_orders: cantOrdersDB, saucer_most_selling: mostSoldSaucer, lastOrder: newOrder}).then(() => {
             console.log('The length customers has been updated in the database: ', cantidad_clientes);
         });
 
